@@ -1,18 +1,18 @@
-const hyperdrive = require('hyperdrive')
+const bitdrive = require('@web4/bitdrive')
 
 const callbackMethods = require('./callback-methods')
 
-const kHyperdrive = Symbol('hyperdrive')
+const kBitdrive = Symbol('bitdrive')
 
-const getHyperdrive = drive => drive[kHyperdrive]
+const getBitdrive = drive => drive[kBitdrive]
 
-class HyperdrivePromise {
+class BitdrivePromise {
   constructor (...args) {
     let drive
     if (args.length === 1 && args[0].readFile) {
       drive = args[0]
     } else {
-      drive = hyperdrive(...args)
+      drive = bitdrive(...args)
     }
 
     this._cache = {}
@@ -23,7 +23,7 @@ class HyperdrivePromise {
   }
 
   get (target, propKey) {
-    if (propKey === kHyperdrive) return target
+    if (propKey === kBitdrive) return target
 
     if (propKey === 'createDiffStream') return this._createDiffStream
     if (propKey === 'checkout') return this._checkout
@@ -67,18 +67,18 @@ class HyperdrivePromise {
   }
 
   _createDiffStream (other, prefix, opts) {
-    if (other instanceof HyperdrivePromise) {
-      other = getHyperdrive(other)
+    if (other instanceof BitdrivePromise) {
+      other = getBitdrive(other)
     }
 
-    return getHyperdrive(this).createDiffStream(other, prefix, opts)
+    return getBitdrive(this).createDiffStream(other, prefix, opts)
   }
 
   _checkout (version, opts) {
-    const h = getHyperdrive(this).checkout(version, opts)
-    return new HyperdrivePromise(h)
+    const h = getBitdrive(this).checkout(version, opts)
+    return new BitdrivePromise(h)
   }
 }
 
-module.exports = (...args) => new HyperdrivePromise(...args)
-module.exports.getHyperdrive = getHyperdrive
+module.exports = (...args) => new BitdrivePromise(...args)
+module.exports.getBitdrive = getBitdrive

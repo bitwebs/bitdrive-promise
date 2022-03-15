@@ -1,24 +1,23 @@
-# hyperdrive-promise
+# bitdrive-promise
 
-An async/await based wrapper for [hyperdrive](https://github.com/mafintosh/hyperdrive) (v10+)
+An async/await based wrapper for [bitdrive](https://github.com/mafintosh/bitdrive) (v10+)
 
-[![Build Status](https://travis-ci.com/geut/hyperdrive-promise.svg?branch=master)](https://travis-ci.com/geut/hyperdrive-promise) [![Greenkeeper badge](https://badges.greenkeeper.io/geut/hyperdrive-promise.svg)](https://greenkeeper.io/)
 
 ## Install
 
 ```
-$ npm install @geut/hyperdrive-promise
+$ npm install @web4/bitdrive-promise
 ```
 
 ## Usage
 
-`hyperdrive-promise` its totally [API compatible](https://github.com/mafintosh/hyperdrive#api) with hyperdrive v10+. It's only a promise based wrapper.
+`bitdrive-promise` its totally [API compatible](https://github.com/bitwebs/bitdrive#api) with bitdrive v10+. It's only a promise based wrapper.
 
 E.g.:
 
 ```javascript
-const hyperdrive = require('@geut/hyperdrive-promise')
-const archive = hyperdrive('./my-first-hyperdrive') // content will be stored in this folder
+const bitdrive = require('@web4/bitdrive-promise')
+const archive = bitdrive('./my-first-bitdrive') // content will be stored in this folder
 
 try {
   await archive.writeFile('/hello.txt', 'world')
@@ -39,11 +38,4 @@ try {
 
 ## Contributing
 
-:busts_in_silhouette: Ideas and contributions to the project are welcome. You must follow this [guideline](https://github.com/geut/hyperdrive-promise/blob/master/CONTRIBUTING.md).
-
-
-## Sponsored By
-
-[
-<img src="https://github.com/libscie.png" alt="Liberate Science" width="200px" />
-](https://libscie.org)
+:busts_in_silhouette: Ideas and contributions to the project are welcome. You must follow this [guideline](https://github.com/bitwebs/bitdrive-promise/blob/master/CONTRIBUTING.md).

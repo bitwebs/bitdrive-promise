@@ -1,6 +1,6 @@
-import type { Hyperdrive as HyperdriveCB } from 'hyper-typings/callbacks'
-import type { Hyperdrive as HyperdriveP } from 'hyper-typings/promises'
+import type { Bitdrive as BitdriveCB } from '@web4/typings/callbacks'
+import type { Bitdrive as BitdriveP } from '@web4/typings/promises'
 
-declare module "@geut/hyperdrive-promise" {
-  export default function hyperdrivePromise(source: HyperdriveCB) : HyperdriveP
+declare module "@web4/bitdrive-promise" {
+  export default function bitdrivePromise(source: BitdriveCB) : BitdriveP
 }

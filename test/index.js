@@ -2,7 +2,7 @@ const test = require('tape')
 const proxyquire = require('proxyquire').noCallThru()
 const ram = require('random-access-memory')
 
-const hyperdrive = require('..')
+const bitdrive = require('..')
 const callbackMethods = require('../callback-methods')
 
 function create (key, opts) {
@@ -11,7 +11,7 @@ function create (key, opts) {
     key = null
   }
 
-  return toCallback(hyperdrive((opts && opts.corestore) || ram, key, { persist: false, ...opts }))
+  return toCallback(bitdrive((opts && opts.corestore) || ram, key, { persist: false, ...opts }))
 }
 
 function toCallback (feed) {
@@ -57,12 +57,12 @@ const tests = [
 ]
 
 // We convert the promise style into callbacks (again) to test against the
-// original hyperdrive test code, if the promises are ok, the callbacks should work fine.
-tests.forEach(test => proxyquire(`hyperdrive/test/${test}`, { './helpers/create': create }))
+// original bitdrive test code, if the promises are ok, the callbacks should work fine.
+tests.forEach(test => proxyquire(`bitdrive/test/${test}`, { './helpers/create': create }))
 
 test('cache methods', async function (t) {
   t.plan(1)
 
-  const drive = hyperdrive(ram)
+  const drive = bitdrive(ram)
   t.equal(drive.readFile, drive.readFile, 'Should get the same readFile function')
 })
