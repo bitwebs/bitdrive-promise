@@ -1,7 +1,7 @@
 {
   "name": "@web4/bitdrive-promise",
-  "version": "1.0.0",
-  "description": "An async/await based wrapper for bitdrive (v10+)",
+  "version": "1.0.1",
+  "description": "An async/await based wrapper for bitdrive",
   "main": "index.js",
   "files": [
     "index.js",
